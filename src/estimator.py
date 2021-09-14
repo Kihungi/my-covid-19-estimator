@@ -1,4 +1,3 @@
-import __init__
 from math import trunc
 
 class CovidEstimator:
@@ -17,17 +16,16 @@ class CovidEstimator:
         self.impact = {}
         self.severeImpact = {}
 
-      def estimator(self):
-      
+      def estimator(self,days):
         self.impact['currentlyInfected1'] = self.reportedCases * 10
         self.severeImpact['currentlyInfected2'] = self.reportedCases * 50
-        self.impact['infectionsByRequestedTime1'] = trunc(self.impact['currentlyInfected1'] * (2**9))
-        self.severeImpact['infectionsByRequestedTime2'] = trunc(self.severeImpact['currentlyInfected2'] * (2**9))           
+        self.impact['infectionsByRequestedTime1'] = trunc(self.impact['currentlyInfected1'] * (2**trunc(days/3)))
+        self.severeImpact['infectionsByRequestedTime2'] = trunc(self.severeImpact['currentlyInfected2'] * (2**trunc(days/3)))           
         self.data = self.impact|self.severeImpact  
         return self.data
        
     
 estimation1 = CovidEstimator()
-print(estimation1.estimator())    
+print(estimation1.estimator(28))    
        
 
