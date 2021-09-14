@@ -16,7 +16,8 @@ class CovidEstimator:
         self.impact = {}
         self.severeImpact = {}
 
-      def estimator(self,days):
+      def estimator(self,months,weeks,thedays):
+        days = months*30 + weeks*7 + thedays    
         self.impact['currentlyInfected1'] = self.reportedCases * 10
         self.severeImpact['currentlyInfected2'] = self.reportedCases * 50
         self.impact['infectionsByRequestedTime1'] = trunc(self.impact['currentlyInfected1'] * (2**trunc(days/3)))
@@ -26,6 +27,6 @@ class CovidEstimator:
        
     
 estimation1 = CovidEstimator()
-print(estimation1.estimator(28))    
+print(estimation1.estimator(1,2,60))    
        
 
