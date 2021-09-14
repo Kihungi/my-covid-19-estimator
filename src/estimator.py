@@ -1,5 +1,6 @@
 from math import trunc
 
+
 class CovidEstimator:
       def __init__ (self):
         self.region = {
@@ -27,6 +28,7 @@ class CovidEstimator:
        
     
 estimation1 = CovidEstimator()
-print(estimation1.estimator(1,2,60))    
+print(estimation1.estimator(1,2,60))   
+ 
        
 
